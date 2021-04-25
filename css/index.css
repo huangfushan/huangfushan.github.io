@@ -3197,6 +3197,13 @@ blockquote footer cite:before {
   -moz-background-size: cover;
   background-size: cover;
 }
+#footer:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  content: '';
+}
 #footer-wrap {
   position: relative;
   padding: 2rem 1rem;
@@ -3232,6 +3239,7 @@ blockquote footer cite:before {
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
+  background-image: url("https://t7.baidu.com/it/u=2602324749,2588073688&fm=193&f=GIF");
 }
 #page-header.full_page {
   height: 100vh;
