@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>网站托管服务 Github Page / Vercel / FC / CDN + OSS</title>
-      <link href="2021/04/28/deploy/"/>
-      <url>2021/04/28/deploy/</url>
-      
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p><a href="/2021/04/25/blog/">上篇文章</a> 介绍了在我们不注册域名、以及购买云服务器的基础上，利用现有的免费的云厂商托管平台搭建个人网站。并以 <code>Hexo </code> + <code>Github Pages</code> 为例，实现了个人博客的快速搭建和部署。</p></blockquote><p>接下来介绍其他几种网站托管。</p><ul><li><a href="https://pages.github.com/">Github Pages</a></li><li><a href="https://vercel.com/">Vercel</a></li><li><a href="https://www.aliyun.com/product/cdn">内容分发网络CDN</a> + <a href="https://www.aliyun.com/product/oss">对象存储OSS</a></li><li><a href="https://www.aliyun.com/product/fc">阿里云函数计算FC</a></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> blog </tag>
-            
-            <tag> 教程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搭建个人博客 Hexo + Github Page</title>
       <link href="2021/04/26/blog/"/>
       <url>2021/04/26/blog/</url>
