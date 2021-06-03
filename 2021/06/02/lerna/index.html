@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/friends.jpg">
 <meta property="article:published_time" content="2021-06-02T06:41:47.732Z">
-<meta property="article:modified_time" content="2021-06-03T02:27:08.048Z">
+<meta property="article:modified_time" content="2021-06-03T02:36:39.027Z">
 <meta property="article:author" content="huangfushan">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="lerna">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-06-03 10:27:08'
+  postUpdate: '2021-06-03 10:36:39'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -143,7 +143,7 @@
     })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://hfscdn.vercel.app/blog/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/friends.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fushan Huang's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">通过 Lerna 实现多个软件包的管理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-06-02T06:41:47.732Z" title="undefined 2021-06-02 14:41:47">2021-06-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="通过 Lerna 实现多个软件包的管理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>将大型代码仓库分割成多个独立版本化的软件包（package）对于代码共享来说非常有用。但是，如果某些更改 跨越了多个代码仓库的话将变得很 麻烦 并且难以跟踪，并且跨越多个代码仓库的测试将迅速变得非常复杂。<br>为了解决这些（以及许多其它）问题，某些项目会将 代码仓库分割成多个软件包（package），并将每个软件包存放到独立的代码仓库中。</p>
 </blockquote>
-<p>Lerna 是一种工具，针对 使用 git 和 npm 管理多软件包代码仓库的工作流程进行优化。</p>
+<p><code>Lerna</code> 是一种工具，针对 使用 <code>git</code> 和 <code>npm</code> 管理多软件包代码仓库的工作流程进行优化。</p>
 <h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --global lerna                    &#x2F;&#x2F; 全局安装 lerna</span><br><span class="line">git init hfs-lerna-test &amp;&amp; cd hfs-lerna-test  &#x2F;&#x2F; 创建文件夹， hfs-lerna-test 仅代表当前例子文件夹名</span><br><span class="line">lerna init                                    &#x2F;&#x2F; 初始化一个lerna项目结构，如果希望各个包使用单独版本号可以加 -i | --independent</span><br></pre></td></tr></table></figure>
 <p>你的代码仓库目前应该是如下结构：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- hfs-lerna-test&#x2F;</span><br><span class="line">  - packages&#x2F;</span><br><span class="line">  - package.json</span><br><span class="line">  - lerna.json</span><br></pre></td></tr></table></figure>
@@ -157,10 +157,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── lerna.json</span><br><span class="line">├── package.json</span><br><span class="line">└── packages</span><br><span class="line">    └── test-1</span><br><span class="line">    		├── __tests__</span><br><span class="line">    		│    └── test-1.test.js</span><br><span class="line">    		├── lib</span><br><span class="line">    		│    └── test-1.js</span><br><span class="line">        ├── package.json</span><br><span class="line">        └── README.md</span><br><span class="line">    └── test-2</span><br><span class="line">    		├── __tests__</span><br><span class="line">    		│    └── test-2.test.js</span><br><span class="line">    		├── lib</span><br><span class="line">    		│    └── test-2.js</span><br><span class="line">        ├── package.json</span><br><span class="line">        └── README.md</span><br></pre></td></tr></table></figure>
 
 <h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><blockquote>
-<p>我们时常看到某些一类诸如 <code>@babel/runtime</code>、<code>@babel/preset-env</code>的依赖包，其中 <code>babel</code> 实际就是可以看成包组织的意思，代指分将<code>babel</code>包分割成多个独立版本化的软件包（package）。</p>
-</blockquote>
-<blockquote>
-<p>因此在 <code>test-1</code>、<code>test-2</code> 中，<code>package.json</code> 的 <code>name</code> 字段分别改成 <code>@hfs-lerna-test/test-1</code>,<code>@hfs-lerna-test/test-2</code>。</p>
+<ul>
+<li>我们时常看到某些一类诸如 <code>@babel/runtime</code>、<code>@babel/preset-env</code>的依赖包，其中 <code>babel</code> 实际就是可以看成包组织作用域的意思，代指分将<code>babel</code>包分割成多个独立版本化的软件包（package）。</li>
+<li><code>npm</code> 包前面加 <code>@</code>，代表 <code>scopes</code> 相关的包，可以理解为作用域(范围)包， <code>npm</code> 作用域的命名不是谁便就能用的，只有两种可以使用：自己的用户名、自己创建的组织名。</li>
+<li>因此在 <code>test-1</code>、<code>test-2</code> 中，<code>package.json</code> 的 <code>name</code> 字段分别改成 <code>@hfs-lerna-test/test-1</code>,<code>@hfs-lerna-test/test-2</code>。</li>
+</ul>
 </blockquote>
 <p>在仓库根目录执行指令安装依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lerna bootstrap</span><br></pre></td></tr></table></figure>
@@ -172,8 +173,14 @@
 
 <h2 id="发布模块"><a href="#发布模块" class="headerlink" title="发布模块"></a>发布模块</h2><p><code>lerna publish</code></p>
 <blockquote>
-<p>会打 <code>Tag</code>，上传 <code>Github </code>,上传 <code>NPM</code>。<br>当我们执行 <code>lerna publish</code> 命令时，可能会报错，<code>lerna publish</code> 常见错误见 <a href="#lerna-publish-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B">常见错误类型</a><br><code>lerna publish</code> 本质上还是执行 <code>npm publish</code>，那么我们首先需要在 <code>npm</code> 仓库上注册用户，以及推送代码到远程 <code>github</code> 仓库。</p>
+<ul>
+<li>会打 <code>Tag</code>，上传 <code>Github </code>,上传 <code>NPM</code>。</li>
+<li>当我们执行 <code>lerna publish</code> 命令时，可能会报错，<code>lerna publish</code> 常见错误见 <a href="#lerna-publish-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B">常见错误类型</a></li>
+</ul>
 </blockquote>
+<ul>
+<li><code>lerna publish</code> 本质上还是执行 <code>npm publish</code>，那么我们首先需要在 <code>npm</code> 仓库上注册用户，以及推送代码到远程 <code>github</code> 仓库。</li>
+</ul>
 <p><img src="https://hfscdn.vercel.app/blog/lerna-publish.png" alt="hexo"></p>
 <ul>
 <li><p>注意</p>
