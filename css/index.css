@@ -5702,6 +5702,30 @@ blockquote.pullquote.right {
 .read-mode #article-container .note .note-icon {
   color: var(--font-color);
 }
+.aplayer.aplayer-withlrc .aplayer-pic {
+  height: 120px !important;
+  width: 120px !important;
+}
+.aplayer.aplayer-withlrc .aplayer-info {
+  margin-left: 120px !important;
+  height: 120px !important;
+}
+.aplayer .aplayer-lrc {
+  height: 50px !important;
+}
+.aplayer .aplayer-lrc .aplayer-lrc-contents {
+  padding-top: 20px;
+}
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  font-size: 14px;
+  -webkit-background-clip: text;
+  background-image: -webkit-linear-gradient(315deg, #f00, #05ca05);
+  background-image: -moz-linear-gradient(315deg, #f00, #05ca05);
+  background-image: -o-linear-gradient(315deg, #f00, #05ca05);
+  background-image: -ms-linear-gradient(315deg, #f00, #05ca05);
+  background-image: linear-gradient(135deg, #f00, #05ca05);
+  color: transparent;
+}
 .search-dialog {
   position: fixed;
   top: 5rem;
